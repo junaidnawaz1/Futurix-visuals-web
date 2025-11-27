@@ -5,7 +5,6 @@ import { LettersPullUp } from "./LettersPullUp";
 import gsap from 'gsap';
 
 // Import assets
-import reviewVideo from '../assets/review-video.mp4';
 import reviewImage1 from '../assets/review-image1.jpg';
 import reviewImage2 from '../assets/review-image2.jpg';
 import reviewImage3 from '../assets/review-image3.jpg';
@@ -97,23 +96,9 @@ const Reviews = () => {
   };
 
   // Video controls
-  const togglePlay = () => {
-    if (videoRef.current) {
-      if (videoState.isPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
-      }
-      setVideoState(prev => ({ ...prev, isPlaying: !prev.isPlaying }));
-    }
-  };
 
-  const toggleMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !videoRef.current.muted;
-      setVideoState(prev => ({ ...prev, isMuted: !prev.isMuted }));
-    }
-  };
+
+
 
   const handleVideoClick = () => {
     setVideoState(prev => ({ ...prev, showControls: true }));
@@ -339,100 +324,7 @@ const Reviews = () => {
             </motion.div>
 
             {/* Video Section */}
-    <motion.div
-  initial={{ opacity: 0, y: 30 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.6, delay: 0.7 }}
-  viewport={{ once: true }}
-  className="mt-8"
->
-  <motion.div
-    className="relative rounded-2xl overflow-hidden border border-gray-700 hover:border-purple-500/50 transition-all duration-500 group max-w-md mx-auto"
-    whileHover={{ scale: 1.02 }}
-  >
-    {/* Video Container */}
-    <div 
-      className="relative cursor-pointer h-80"
-      onClick={handleVideoClick}
-    >
-      <video
-        ref={videoRef}
-        className="w-full h-full object-cover rounded-2xl"
-        muted={videoState.isMuted}
-        playsInline
-        preload="metadata"  // Critical for performance
-        onLoadedData={() => setVideoState(prev => ({ ...prev, isLoading: false }))}
-        onWaiting={() => setVideoState(prev => ({ ...prev, isLoading: true }))}
-        onCanPlay={() => setVideoState(prev => ({ ...prev, isLoading: false }))}
-        onEnded={() => setVideoState(prev => ({ ...prev, isPlaying: false }))}
-      >
-        <source src={reviewVideo} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      
-      {/* Loading Spinner */}
-      {videoState.isLoading && (
-        <div className="absolute inset-0 flex items-center justify-center bg-black/50">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-500"></div>
-        </div>
-      )}
-      
-      {/* Play/Pause Overlay */}
-      {!videoState.isPlaying && !videoState.isLoading && (
-        <motion.div 
-          className="absolute inset-0 flex items-center justify-center bg-black/40"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
-        >
-          <div className="w-20 h-20 bg-purple-500/90 rounded-full flex items-center justify-center backdrop-blur-sm border-2 border-white/30">
-            <Play size={32} className="text-white ml-1" />
-          </div>
-        </motion.div>
-      )}
-
-      {/* Video Controls */}
-      {(videoState.showControls || !videoState.isPlaying) && !videoState.isLoading && (
-        <motion.div 
-          className="absolute bottom-4 left-4 right-4 flex items-center justify-between bg-black/70 backdrop-blur-sm rounded-full px-4 py-3"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3 }}
-        >
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              togglePlay();
-            }}
-            className="flex items-center justify-center text-white hover:text-purple-300 transition-colors"
-          >
-            {videoState.isPlaying ? <Pause size={24} /> : <Play size={24} />}
-          </button>
-          
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              toggleMute();
-            }}
-            className="flex items-center justify-center text-white hover:text-purple-300 transition-colors"
-          >
-            {videoState.isMuted ? <VolumeX size={24} /> : <Volume2 size={24} />}
-          </button>
-        </motion.div>
-      )}
-    </div>
-  </motion.div>
-
-  <motion.p
-    initial={{ opacity: 0 }}
-    whileInView={{ opacity: 1 }}
-    transition={{ duration: 0.6, delay: 0.9 }}
-    viewport={{ once: true }}
-    className="text-center text-gray-400 text-sm mt-4"
-  >
-    Click to play our showcase video with audio
-  </motion.p>
-</motion.div>
+   
           </div>
 
           {/* Right Side - Testimonials */}
@@ -596,5 +488,6 @@ const Reviews = () => {
     </section>
   );
 };
+
 
 export default Reviews;
