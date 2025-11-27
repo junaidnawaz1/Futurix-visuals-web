@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Star, Quote, ArrowRight, Play, Pause, Volume2, VolumeX } from 'lucide-react';
+import { Star, Quote, ArrowRight } from 'lucide-react';
 import { LettersPullUp } from "./LettersPullUp";
 import gsap from 'gsap';
 
@@ -13,19 +13,12 @@ import reviewImage4 from '../assets/review-image4.jpg';
 const Reviews = () => {
   const arrowRef1 = useRef(null);
   const arrowRef2 = useRef(null);
-  const videoRef = useRef(null);
 
   const [counters, setCounters] = useState({
     projects: 0,
     countries: 0,
     years: 0,
     satisfaction: 0
-  });
-
-  const [videoState, setVideoState] = useState({
-    isPlaying: false,
-    isMuted: false,
-    showControls: true
   });
 
   const sectionRef = useRef(null);
@@ -81,7 +74,7 @@ const Reviews = () => {
     if (arrowRef2.current) {
       gsap.to(arrowRef2.current, {
         x: 8,
-        duration: 0.,
+        duration: 0.3,
         repeat: -1,
         yoyo: true,
         ease: "power2.inOut",
@@ -94,27 +87,6 @@ const Reviews = () => {
     e.preventDefault();
     window.location.href = "/contact";
   };
-
-  // Video controls
-
-
-
-
-  const handleVideoClick = () => {
-    setVideoState(prev => ({ ...prev, showControls: true }));
-    togglePlay();
-  };
-
-  // Hide controls after 3 seconds of inactivity
-  useEffect(() => {
-    if (videoState.isPlaying && videoState.showControls) {
-      const timer = setTimeout(() => {
-        setVideoState(prev => ({ ...prev, showControls: false }));
-      }, 3000);
-
-      return () => clearTimeout(timer);
-    }
-  }, [videoState.isPlaying, videoState.showControls]);
 
   // Testimonials data
   const testimonials = [
@@ -136,7 +108,7 @@ const Reviews = () => {
       id: 3,
       text: "One of the best Projects! You understood the concept. The results are realistic and fitting",
       author: "N. Taha Haseeb",
-      company: "Manager of Glamur paint",
+      company: "Manager of Glamur paint",
       rating: 5
     }
   ];
@@ -322,9 +294,6 @@ const Reviews = () => {
                 </div>
               </motion.button>
             </motion.div>
-
-            {/* Video Section */}
-   
           </div>
 
           {/* Right Side - Testimonials */}
@@ -488,6 +457,5 @@ const Reviews = () => {
     </section>
   );
 };
-
 
 export default Reviews;
