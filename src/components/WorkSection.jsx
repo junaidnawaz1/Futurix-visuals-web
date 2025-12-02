@@ -6,6 +6,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import card1 from "../assets/card1.jpg";
 import card2 from "../assets/card2.jpg";
 import card3 from "../assets/card3.jpg";   
+import { HeroLettersPullUp } from "./HeroTextAnimation";
 
 const WorkSection = () => {
   const [hoveredCard, setHoveredCard] = useState(null);
@@ -108,7 +109,7 @@ const WorkSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="min-h-screen bg-[#3B1C57] text-white py-16 md:py-24 px-4 md:px-12 relative overflow-hidden"
+      className="min-h-screen bg-[#f5f5f5] font-sans text-white py-16 md:py-24 px-4 md:px-12 relative overflow-hidden"
     >
       {/* CUSTOM PURPLE CURSOR - Hidden on mobile */}
       <motion.div
@@ -130,16 +131,17 @@ const WorkSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:h-[900px] lg:gap-12 items-start">
           {/* LEFT */}
           <div className="lg:pr-8">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-4 md:mb-8 leading-tight">
-              Selected
+            <h2 className="text-4xl text-black sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-4 md:mb-8 leading-tight">
+              SELECTED
               <br />
-              <span className="text-purple-300">WORK</span>
+              <span className="text-purple-600">WORK</span>
             </h2>
 
-            <p className="text-purple-200 text-base md:text-lg mb-6 md:mb-12 max-w-md">
+            <p className="text-black text-base md:text-xl font-normal mb-6 md:mb-12 max-w-md">
               Explore our curated selection of innovative projects that showcase
               our skills in 3D animation and digital design.
             </p>
+         
 
             <button 
               onClick={() => window.location.href = '/projects'}

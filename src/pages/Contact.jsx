@@ -72,15 +72,15 @@ const Contact = () => {
   };
 
   return (
-    <section className="w-full min-h-screen pt-32 pb-20 px-6 md:px-12 text-white font-sans ">
+    <section className="w-full min-h-screen pt-32 pb-20 px-6 md:px-12 text-black font-sans ">
 
       {/* TITLE */}
       <div className="mb-16">
         <LettersPullUp
-          text="Get in touch"
+          text="GET IN TOUCH"
           className="text-5xl md:text-7xl font-bold mb-4"
         />
-        <p className="text-gray-400 text-lg md:text-xl">
+        <p className="text-purple-600 text-lg md:text-xl">
           Don't be afraid to say hello with us!
         </p>
       </div>
@@ -120,11 +120,11 @@ const Contact = () => {
               onClick={handleQuickCall}
             >
               <div className="w-12 h-12 bg-purple-600/20 rounded-full flex items-center justify-center group-hover:bg-purple-600/40 transition-all duration-300 border border-purple-500/30">
-                <Phone size={20} className="text-purple-400" />
+                <Phone size={20} className="text-purple-600" />
               </div>
               <div>
-                <p className="text-gray-400 text-sm">Phone</p>
-                <p className="font-medium text-white group-hover:text-purple-300 transition-colors">+92 3322044474</p>
+                <p className="text-black text-sm">Phone</p>
+                <p className="font-medium text-black group-hover:text-purple-800 ">+92 3322044474</p>
               </div>
             </motion.div>
 
@@ -134,11 +134,11 @@ const Contact = () => {
               onClick={handleEmailClick}
             >
               <div className="w-12 h-12 bg-purple-600/20 rounded-full flex items-center justify-center group-hover:bg-purple-600/40 transition-all duration-300 border border-purple-500/30">
-                <Mail size={20} className="text-purple-400" />
+                <Mail size={20} className="text-purple-800" />
               </div>
               <div>
-                <p className="text-gray-400 text-sm">Email</p>
-                <p className="font-medium text-white group-hover:text-purple-300 transition-colors">futurixvisuals@gmail.com</p>
+                <p className="text-black text-sm">Email</p>
+                <p className="font-medium text-black group-hover:text-purple-800 transition-colors">futurixvisuals@gmail.com</p>
               </div>
             </motion.div>
 
@@ -148,11 +148,11 @@ const Contact = () => {
               onClick={handleInstagram}
             >
               <div className="w-12 h-12 bg-purple-600/20 rounded-full flex items-center justify-center group-hover:bg-purple-600/40 transition-all duration-300 border border-purple-500/30">
-                <Instagram size={20} className="text-purple-400" />
+                <Instagram size={20} className="text-purple-800" />
               </div>
               <div>
-                <p className="text-gray-400 text-sm">Instagram</p>
-                <p className="font-medium text-white group-hover:text-purple-300 transition-colors">@futurixvisuals</p>
+                <p className="text-black text-sm">Instagram</p>
+                <p className="font-medium text-black group-hover:text-purple-800 transition-colors">@futurixvisuals</p>
               </div>
             </motion.div>
           </div>

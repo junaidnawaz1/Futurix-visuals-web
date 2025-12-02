@@ -17,7 +17,7 @@ export function LettersPullUp({ text, className = "" }) {
   const chars = text.split("");
 
   return (
-    <div ref={ref} className="flex flex-wrap">
+    <div ref={ref} className="flex flex-wrap font-sans leading-tight">
       {chars.map((ch, i) => (
         <motion.span
           key={i}

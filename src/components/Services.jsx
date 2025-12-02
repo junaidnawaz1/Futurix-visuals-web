@@ -51,7 +51,7 @@ const Services = () => {
   };
 
   return (
-    <section id="services-section" className="min-h-screen bg-black text-white py-12 px-6 md:px-12">
+    <section id="services-section" className="min-h-screen font-sans bg-[#f5f5f5] text-black py-12 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
         
         {/* Header */}
@@ -64,10 +64,10 @@ const Services = () => {
         >
           <LettersPullUp
             text="SERVICES"
-            className="text-4xl md:text-6xl font-bold mb-4"
+            className="text-4xl md:text-8xl font-bold mb-4"
           />
          
-          <p className="text-start text-gray-400 text-lg md:text-xl  mx-auto">A curated set of services crafted to elevate your visuals – clean, effective, and made for impact.</p>
+          <p className="text-start text-black text-lg md:text-xl  mx-auto">A curated set of services crafted to elevate your visuals – clean, effective, and made for impact.</p>
         </motion.div>
 
         {/* Services Grid - 4 CARDS IN ONE LINE */}

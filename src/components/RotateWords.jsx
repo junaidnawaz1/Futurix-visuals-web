@@ -17,7 +17,7 @@ export function RotateWords({
   }, []);
 
   return (
-    <div className="flex items-center text-5xl md:text-7xl font-extrabold tracking-tight gap-2 text-purple-500">
+    <div className="flex items-center text-6xl font-sans md:text-[170px] font-extrabold tracking-tight gap-2 text-purple-600">
       {text}
       <AnimatePresence mode="wait">
         <motion.span

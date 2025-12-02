@@ -92,7 +92,7 @@ export default function Footer() {
 
   return (
     <footer 
-      className="w-screen md:font-serif min-h-screen bg-[#1A1A1A] text-white relative overflow-hidden flex flex-col rounded-t-[3rem] md:rounded-t-[4rem]"
+      className="w-screen md:font-sans min-h-screen bg-[#1A1A1A] text-white relative overflow-hidden flex flex-col rounded-t-[3rem] md:rounded-t-[4rem]"
       style={{ 
         margin: 0,
         padding: 0,

@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, Play } from "lucide-react";
 import { LettersPullUp } from "../components/LettersPullUp";
 
+
 // Helper to extract video ID from the base source URL
 const getVideoId = (baseSrc) => {
   const match = baseSrc.match(/embed\/(.+)\?/);
@@ -129,7 +130,7 @@ export default function Projects() {
   }
 
   return (
-    <div className="w-full min-h-screen bg-[#3B1C57] text-white relative py-20 px-4 md:px-8">
+    <div className="w-full min-h-screen bg-White text-black relative py-20 px-4 md:px-8">
       
       {/* Custom Purple Cursor */}
       <motion.div
@@ -158,15 +159,18 @@ export default function Projects() {
       >
         <div className="max-w-6xl mx-auto">
           <LettersPullUp
-            text="Our Projects"
-            className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent"
+            text="OUR PROJECTS"
+            className="text-4xl md:text-6xl font-sans font-bold mb-6 text-black"
           />
         
-          <LettersPullUp
+          {/* <LettersPullUp
             text="Explore our portfolio of stunning 3D animations and visual experiences"
             className="ext-gray-400 text-lg md:text-2xl max-w-2xl"
-          />
+          /> */}
         </div>
+        <p className="text-purple-600 text-lg md:text-2xl mx-auto">
+          Explore our portfolio of stunning 3D animations and visual experiences
+        </p>
       </motion.div>
 
       {/* PROJECT GRID */}
