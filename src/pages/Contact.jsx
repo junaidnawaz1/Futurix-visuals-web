@@ -78,7 +78,7 @@ const Contact = () => {
       <div className="mb-16">
         <LettersPullUp
           text="GET IN TOUCH"
-          className="text-5xl md:text-7xl font-bold mb-4"
+          className="text-4xl md:text-7xl font-bold mb-4"
         />
         <p className="text-purple-600 text-lg md:text-xl">
           Don't be afraid to say hello with us!
@@ -294,3 +294,4 @@ const Contact = () => {
 };
 
 export default Contact;
+
