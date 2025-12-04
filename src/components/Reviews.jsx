@@ -470,7 +470,7 @@ import gsap from 'gsap';
 // --- Helper component for Stat Items (Smaller size, static green) ---
 const StatItem = ({ count, label, suffix = '', delay }) => {
     // Static yellow-green color for counter boxes
-    const STATIC_COLOR = 'bg-purple-600'; 
+    const STATIC_COLOR = 'bg-white'; 
     
     return (
         <motion.div
@@ -479,14 +479,14 @@ const StatItem = ({ count, label, suffix = '', delay }) => {
             transition={{ duration: 0.6, delay: delay }}
             viewport={{ once: true }}
             // Reduced padding (p-4) and added smaller shadow
-            className={`text-left p-4 rounded-lg shadow-sm ${STATIC_COLOR} text-white`}
+            className={`text-left p-4 rounded-lg shadow-sm ${STATIC_COLOR} text-black`}
         >
             {/* Reduced font size (text-3xl) */}
             <div className="text-3xl md:text-4xl font-bold mb-1">
                 {label === 'years' ? count.toFixed(1) : count}{suffix}
             </div>
             {/* Reduced description font size (text-xs) */}
-            <div className="text-gray-900 text-xs font-light">
+            <div className="text-black text-xs font-medium">
                 {label === 'years' ? 'Years of Creation' : 
                  label === 'projects' ? 'Projects completed' : 
                  label === 'countries' ? 'Countries Reached' : 
@@ -498,7 +498,7 @@ const StatItem = ({ count, label, suffix = '', delay }) => {
 
 // --- Helper component for Testimonial Cards (Smaller size, hover green only) ---
 const TestimonialCard = ({ testimonial, index }) => {
-    const HOVER_COLOR = 'bg-purple-600'; 
+    const HOVER_COLOR = 'bg-gray-400'; 
     const DEFAULT_COLOR = 'bg-white';
     
     // Static highlight removed: all cards are now white by default and turn green on hover.
@@ -644,7 +644,7 @@ const Reviews = () => {
   return (
     <section 
       ref={sectionRef} 
-      className="min-h-screen font-sans bg-white text-black py-20 px-6 md:px-12"
+      className="min-h-screen font-sans shadow-2xl shadow-blue-500/50 bg-white text-black py-20 px-6 md:px-12"
     >
       <div className="max-w-7xl mx-auto">
         
@@ -698,7 +698,7 @@ const Reviews = () => {
             >
               <motion.button
                 onClick={handleContactClick}
-                className="group relative inline-flex items-center justify-center w-full px-6 py-3 rounded-lg bg-purple-800 text-white font-medium text-base transition-colors duration-300 hover:bg-purple-900"
+                className="group relative inline-flex items-center justify-center w-full px-6 py-3 rounded-lg bg-gray-500 text-white font-medium text-base transition-colors duration-300 hover:bg-gray-600"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >

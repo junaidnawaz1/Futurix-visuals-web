@@ -1061,14 +1061,18 @@ export default function Navbar() {
 
     return (
         <motion.nav 
-            className={`w-full fixed top-0 left-0 z-50 mb-0 transition-all duration-300 ${
+            className={`w-full fixed top-0 left-0 z-50 transition-all duration-300 ${
                 scrolled 
                     ? "bg-white/95 backdrop-blur-sm shadow-2xl shadow-slate-200/20 py-2 border-b border-slate-200" 
-                    : "bg-white py-2"
+                    : "md:bg-white py-2" // Only white background on desktop when not scrolled
             }`}
             initial={{ y: -100 }}
             animate={{ y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
+            style={{ 
+                // Transparent background on mobile (below md breakpoint)
+                backgroundColor: window.innerWidth < 768 ? 'transparent' : undefined 
+            }}
         >
             
             <div className="max-w-7xl mx-auto flex items-center justify-between px-6">
@@ -1091,8 +1095,8 @@ export default function Navbar() {
                 </motion.div>
 
                 {/* Desktop Menu - Centered with equal spacing */}
-                <div className="hidden md:flex flex-1 justify-center ">
-                    <ul className="flex gap-32 text-lg ">
+                <div className="hidden md:flex flex-1 justify-center">
+                    <ul className="flex gap-32 text-lg">
                         {navItems.map((item) => (
                             <li key={item}>
                                 <FlippingText
@@ -1129,12 +1133,12 @@ export default function Navbar() {
 
                 {/* Mobile Toggle */}
                 <motion.button 
-                    className="md:hidden text-slate-600 bg-slate-100 p-2 rounded-lg"
+                    className="md:hidden text-black bg-purple-800/20 backdrop-blur-sm p-2 rounded-lg border border-white/30"
                     onClick={() => setOpen(!open)}
-                    whileHover={{ scale: 1.1, backgroundColor: '#F1F5F9' }}
+                    whileHover={{ scale: 1.1, backgroundColor: 'rgba(107, 33, 168, 0.3)' }}
                     whileTap={{ scale: 0.9 }}
                 >
-                    {open ? <X size={24} /> : <Menu size={24} />}
+                    {open ? <X size={24} className="text-black" /> : <Menu size={24} className="text-black" />}
                 </motion.button>
             </div>
 
@@ -1142,7 +1146,7 @@ export default function Navbar() {
             <AnimatePresence>
                 {open && (
                     <motion.ul 
-                        className="md:hidden bg-white/95 backdrop-blur-xl w-full text-center flex flex-col gap-2 py-4 text-lg absolute top-full left-0 border-t border-slate-200"
+                        className="md:hidden bg-white backdrop-blur-xl w-full text-center flex flex-col gap-2 py-4 text-lg absolute top-full left-0"
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
@@ -1159,8 +1163,8 @@ export default function Navbar() {
                                     href={item === "Home" ? "/" : item === "Services" ? "/#services-section" : `/${item.toLowerCase()}`}
                                     className={`block py-3 transition-all border-l-4 mx-4 rounded-r-lg ${
                                         activeItem === item
-                                            ? 'bg-slate-100 text-slate-900 border-slate-900 pl-6'
-                                            : 'text-slate-600 border-transparent hover:bg-slate-50 hover:border-slate-900 hover:pl-6'
+                                            ? 'bg-purple-400 text-black border-purple-800 pl-6'
+                                            : 'text-black border-transparent hover:bg-purple-600/20 hover:border-purple-400 hover:pl-6'
                                     }`}
                                     onClick={(e) => handleItemClick(e, item)}
                                 >
@@ -1172,7 +1176,7 @@ export default function Navbar() {
                                             <motion.div
                                                 initial={{ scale: 0, rotate: -180 }}
                                                 animate={{ scale: 1, rotate: 0 }}
-                                                className="w-2 h-2 bg-slate-900 rounded-full"
+                                                className="w-2 h-2 bg-purple-400 rounded-full"
                                             />
                                         )}
                                     </motion.span>
@@ -1189,7 +1193,7 @@ export default function Navbar() {
                         >
                             <button
                                 onClick={handleContactClick}
-                                className={`w-full py-3 rounded-2xl font-semibold flex items-center justify-center gap-3 transition-all bg-[#6B21A8] text-white hover:bg-purple-700 ${
+                                className={`w-full py-3 rounded-2xl font-semibold flex items-center justify-center gap-3 transition-all bg-purple-600 text-white hover:bg-purple-700 ${
                                     activeItem === "Contact" ? 'shadow-lg shadow-purple-500/20' : ''
                                 }`}
                             >

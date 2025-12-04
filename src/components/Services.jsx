@@ -14,28 +14,28 @@ const Services = () => {
   const services = [
     {
       id: 1,
-      title: "E-Com",
+      title: "",
       description: "Annotations that work anywhere – social media, TV, Billboards, you name it. Designed to be sharp, eye-catching, and tailored to your brand.",
       video: "https://www.youtube.com/embed/e_g-wKijkqI?autoplay=1&mute=1&loop=1&playlist=e_g-wKijkqI&controls=0&modestbranding=1&rel=0&showinfo=0",
       category: "E-Commerce"
     },
     {
       id: 2,
-      title: "Animations",
+      title: "",
       description: "Bring your ideas to life with stunning animations that captivate your audience and elevate your brand storytelling.",
       video: "https://www.youtube.com/embed/MH-uDQtpU5U?autoplay=1&mute=1&loop=1&playlist=MH-uDQtpU5U&controls=0&modestbranding=1&rel=0&showinfo=0",
       category: "Motion Graphics"
     },
     {
       id: 3,
-      title: "Websites & App Motion",
+      title: "",
       description: "Interactive motion design for digital platforms that enhances user experience and engagement.",
       image: imageCard3,
       category: "UI/UX Motion"
     },
     {
       id: 4,
-      title: "For Mixed Reality & CGI",
+      title: "",
       description: "High-quality product visuals and 3D renders that showcase your products in the best light possible.",
       video: "https://www.youtube.com/embed/vuxbtskDnJw?autoplay=1&mute=1&loop=1&playlist=vuxbtskDnJw&controls=0&modestbranding=1&rel=0&showinfo=0",
       category: "Mixed Reality & CGI"
@@ -117,8 +117,8 @@ const Services = () => {
                 
                 {/* Category Tag - TOP POSITION */}
                 <div className="absolute top-4 left-4 z-20">
-                  <div className="bg-purple-600/90 backdrop-blur-sm px-3 py-1.5 rounded-full border border-purple-400/30">
-                    <p className="text-white text-xs font-medium tracking-wide">
+                  <div className="bg-white backdrop-blur-sm px-3 py-1.5 rounded-full border border-black/10 shadow-md">
+                    <p className="text-black text-base font-medium tracking-wide">
                       {service.category}
                     </p>
                   </div>

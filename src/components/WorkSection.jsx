@@ -143,71 +143,100 @@ const WorkSection = () => {
             </p>
          
 
-            <button 
-              onClick={() => window.location.href = '/projects'}
-              className="relative z-10 font-bold tracking-wide group flex items-center gap-4 md:gap-6 py-3 md:py-4 text-lg md:text-xl font-semibold text-purple-400 hover:text-purple-500"
-            >
-              View all
-              <motion.div animate={{ x: [0, 4, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
-                <ArrowRight size={20} className="w-5 h-5 md:w-6 md:h-6" />
-              </motion.div>
-            </button>
+           <button 
+  onClick={() => window.location.href = '/projects'}
+  className="
+    group 
+    flex 
+    items-center 
+    justify-center
+    font-sans
+    gap-3 
+    md:gap-4 
+    py-3 
+    px-8
+    md:py-4 
+    md:px-10
+    text-base 
+    md:text-lg
+    font-['PP_Mori'] 
+    font-semibold 
+    text-black
+    bg-transparent
+    border-2 
+    border-black
+    rounded-full
+    transition-all
+    duration-300
+    hover:bg-purple-500
+    hover:text-white
+    hover:border-purple-500
+  "
+>
+  <span className="transition-colors duration-300">
+    View all
+  </span>
+  
+  <ArrowRight 
+    size={20} 
+    className="w-5 h-5 md:w-6 md:h-6 text-black group-hover:text-white transition-colors duration-300" 
+  />
+</button>
           </div>
 
           {/* RIGHT - Stack vertically on mobile, scroll on desktop */}
-          <div ref={rightRef} className="space-y-6 md:space-y-12">
-            {workItems.map((item) => (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true, margin: "-50px" }}
-                className="group bg-black hover:bg-purple-800 rounded-2xl md:rounded-3xl overflow-hidden cursor-pointer border border-purple-700 shadow-lg md:shadow-xl"
-                onMouseEnter={() => {
-                  setCursorText("Take a Look");
-                  setCursorVisible(true);
-                  setHoveredCard(item.id);
-                }}
-                onMouseLeave={() => {
-                  setCursorVisible(false);
-                  setHoveredCard(null);
-                }}
-                onClick={() => {
-                  // Add click handler for mobile if needed
-                  if (window.innerWidth < 1024) {
-                    // Mobile click action
-                    console.log('Project clicked on mobile:', item.title);
-                  }
-                }}
-              >
-                <div className="aspect-video overflow-hidden">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                </div>
+         <div ref={rightRef} className="space-y-6 md:space-y-10">
+  {workItems.map((item) => (
+    <div key={item.id} className="relative group">
+      {/* Card - Only image */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true, margin: "-50px" }}
+        className="cursor-pointer overflow-hidden rounded-2xl md:rounded-2xl w-full lg:max-w-[400px] md:max-w-xs mx-auto"
+        onMouseEnter={() => {
+          setCursorText("Take a Look");
+          setCursorVisible(true);
+          setHoveredCard(item.id);
+        }}
+        onMouseLeave={() => {
+          setCursorVisible(false);
+          setHoveredCard(null);
+        }}
+        onClick={() => {
+          if (window.innerWidth < 1024) {
+            console.log("Project clicked on mobile:", item.title);
+          }
+        }}
+      >
+        {/* Less vertical image ratio */}
+        <div className="aspect-[3/4] overflow-hidden">
+          <img
+            src={item.image}
+            alt={item.title}
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+        </div>
+      </motion.div>
 
-                <div className="p-4 md:p-6">
-                  <h3 className="text-xl md:text-2xl font-bold mb-2 text-white group-hover:text-white transition-colors">
-                    {item.title}
-                  </h3>
-                  
-                  <div className="flex justify-start">
-                    <div className="inline-block px-2 py-1 md:px-3 md:py-1 rounded-full 
-                                  border border-purple-500 
-                                  bg-purple-600/20 
-                                  hover:bg-purple-600/40 transition-colors">
-                      <p className="text-purple-300 text-xs md:text-sm font-medium">
-                        {item.category}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+      {/* Title and Category below - Compact */}
+     <div className="mt-3 text-center justify-center items-center ">
+  {/* Title on the left */}
+  <h3 className="text-lg md:text-xl font-bold text-black">
+    {item.title}
+  </h3>
+  
+  {/* Category badge on the right with purple background */}
+  <div className="inline-flex items-center bg-purple-600 px-3 py-1 rounded-full">
+    <span className="text-white text-xs font-medium">
+      {item.category}
+    </span>
+  </div>
+</div>
+    </div>
+  ))}
+</div>
         </div>
       </div>
     </section>
