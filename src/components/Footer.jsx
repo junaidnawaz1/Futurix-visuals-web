@@ -47,8 +47,8 @@ export default function Footer() {
       label: "Email",
       href: "mailto:futurixvisuals@gmail.com",
       color: "hover:text-purple-400",
-      target: null,
-      rel: null
+      target: null, // No target for email
+      rel: null // No rel for email
     },
     {
       icon: Instagram,
@@ -126,18 +126,18 @@ export default function Footer() {
               <ArrowRight 
                 ref={arrowRef}
                 size={26} 
-                className="transition-all  group-hover:scale-125" 
+                className="transition-all  group-hover:scale-125" 
               />
             </div>
             
             {/* Button hover effect */}
-            <div className="absolute inset-0  bg-gradient-to-r from-purple-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></div>
+            <div className="absolute inset-0  bg-gradient-to-r from-purple-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></div>
           </motion.button>
         </div>
       </div>
 
-      {/* Marquee Background Text - PERFECT INFINITE LOOP */}
-      <div className="absolute bottom-40 left-0 w-full h-32 pointer-events-none z-10 overflow-hidden">
+      {/* Marquee Background Text - PERFECT INFINITE LOOP (DO NOT TOUCH) */}
+      <div className="absolute bottom-40 left-0 w-full h-32 pointer-events-none z-20 overflow-hidden">
         <div className="relative w-full h-full">
           <div
             ref={marqueeRef}
@@ -162,47 +162,30 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom Section Container - FIXED FOR MOBILE */}
-      <div className="pointer-events-auto mt-auto relative z-20 bg-[#1A1A1A] w-full border-t border-gray-800/50 pt-40 md:pt-32"> {/* Increased pt for mobile */}
+      {/* Bottom Section Container */}
+      <div className="pointer-events-auto mt-auto relative z-10 bg-[#1A1A1A] w-full border-t border-gray-800/50 pt-32">
 
         
-        {/* Social Links & Email - REORDERED FOR MOBILE */}
-        <div className="w-full py-6 md:py-10 px-4 md:px-8">
-          {/* Mobile: Email First, Social Icons Below */}
-          <div className="block md:hidden w-full space-y-6">
-            {/* Email - Top on mobile */}
+        {/* Social Links & Email Container */}
+        <div className="w-full py-8 md:py-10 px-6 md:px-8">
+          <div className="w-full flex flex-col lg:flex-row justify-between items-center gap-8 text-gray-400">
+            
+            {/* Email - Right aligned on desktop (NOW ORDERED FIRST ON MOBILE) */}
             <a
               href="mailto:futurixvisuals@gmail.com"
-              className="flex justify-center items-center gap-3 text-base hover:text-purple-400 transition-all duration-300 hover:scale-105 font-medium"
+              // ADDED: order-1 on mobile, then reset to default (lg:order-none) on desktop
+              className="relative z-[50] flex items-center gap-3 text-base md:text-lg hover:text-purple-400 transition-all duration-300 hover:scale-105 font-medium order-1 lg:order-none"
             >
               <Mail size={20} /> 
               <span>futurixvisuals@gmail.com</span>
             </a>
-            
-            {/* Social Links - Below email on mobile */}
-            <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-              {socialLinks.map((social) => (
-                <a 
-                  key={social.label}
-                  href={social.href}
-                  onClick={social.onClick || undefined}
-                  target={social.target || undefined}
-                  rel={social.rel || undefined}
-                  className={`flex items-center gap-2 text-sm transition-all duration-300 hover:scale-105 ${social.color}`}
-                >
-                  <social.icon size={18} /> 
-                  <span className="hidden sm:inline">{social.label}</span>
-                </a>
-              ))}
-            </div>
-          </div>
 
-          {/* Desktop: Original Layout */}
-          <div className="hidden md:flex w-full flex-col lg:flex-row justify-between items-center gap-8 text-gray-400">
-            
-            {/* Social Links - Left aligned on desktop */}
-            <div className="flex items-center gap-6 md:gap-8 flex-wrap justify-center lg:justify-start">
-              {socialLinks.map((social) => (
+            {/* Social Links - Left aligned on desktop (NOW ORDERED SECOND ON MOBILE) */}
+            <div 
+              // ADDED: order-2 on mobile, then reset to default (lg:order-none) on desktop
+              className="flex items-center gap-6 md:gap-8 flex-wrap justify-center lg:justify-start order-2 lg:order-none"
+            >
+              {socialLinks.map((social, index) => (
                 <a 
                   key={social.label}
                   href={social.href}
@@ -216,20 +199,12 @@ export default function Footer() {
                 </a>
               ))}
             </div>
-
-            {/* Email - Right aligned on desktop */}
-            <a
-              href="mailto:futurixvisuals@gmail.com"
-              className="flex items-center gap-3 text-base md:text-lg hover:text-purple-400 transition-all duration-300 hover:scale-105 font-medium"
-            >
-              <Mail size={20} /> 
-              <span>futurixvisuals@gmail.com</span>
-            </a>
+            
           </div>
         </div>
 
         {/* Copyright & Studio Info */}
-        <div className="w-full border-t border-gray-800/30 py-6 md:py-8 px-4 md:px-8">
+        <div className="w-full border-t border-gray-800/30 py-6 md:py-8 px-6 md:px-8">
           <div className="w-full flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500">
             
             {/* Copyright */}
