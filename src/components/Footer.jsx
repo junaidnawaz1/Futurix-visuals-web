@@ -40,8 +40,6 @@ export default function Footer() {
     window.location.href = "/contact";
   };
 
-  // Handle email click - prevent new tab opening
-  
   // Social links data
   const socialLinks = [
     {
@@ -49,8 +47,8 @@ export default function Footer() {
       label: "Email",
       href: "mailto:futurixvisuals@gmail.com",
       color: "hover:text-purple-400",
-      target: null, // No target for email
-      rel: null // No rel for email
+      target: null,
+      rel: null
     },
     {
       icon: Instagram,
@@ -139,7 +137,7 @@ export default function Footer() {
       </div>
 
       {/* Marquee Background Text - PERFECT INFINITE LOOP */}
-      <div className="absolute bottom-40 left-0 w-full h-32 pointer-events-none z-20 overflow-hidden">
+      <div className="absolute bottom-40 left-0 w-full h-32 pointer-events-none z-10 overflow-hidden">
         <div className="relative w-full h-full">
           <div
             ref={marqueeRef}
@@ -164,17 +162,47 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom Section Container */}
-      <div className="pointer-events-auto mt-auto relative z-10 bg-[#1A1A1A] w-full border-t border-gray-800/50 pt-32">
+      {/* Bottom Section Container - FIXED FOR MOBILE */}
+      <div className="pointer-events-auto mt-auto relative z-20 bg-[#1A1A1A] w-full border-t border-gray-800/50 pt-40 md:pt-32"> {/* Increased pt for mobile */}
 
         
-        {/* Social Links & Email */}
-        <div className="w-full py-8 md:py-10 px-6 md:px-8">
-          <div className="w-full flex flex-col lg:flex-row justify-between items-center gap-8 text-gray-400">
+        {/* Social Links & Email - REORDERED FOR MOBILE */}
+        <div className="w-full py-6 md:py-10 px-4 md:px-8">
+          {/* Mobile: Email First, Social Icons Below */}
+          <div className="block md:hidden w-full space-y-6">
+            {/* Email - Top on mobile */}
+            <a
+              href="mailto:futurixvisuals@gmail.com"
+              className="flex justify-center items-center gap-3 text-base hover:text-purple-400 transition-all duration-300 hover:scale-105 font-medium"
+            >
+              <Mail size={20} /> 
+              <span>futurixvisuals@gmail.com</span>
+            </a>
+            
+            {/* Social Links - Below email on mobile */}
+            <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+              {socialLinks.map((social) => (
+                <a 
+                  key={social.label}
+                  href={social.href}
+                  onClick={social.onClick || undefined}
+                  target={social.target || undefined}
+                  rel={social.rel || undefined}
+                  className={`flex items-center gap-2 text-sm transition-all duration-300 hover:scale-105 ${social.color}`}
+                >
+                  <social.icon size={18} /> 
+                  <span className="hidden sm:inline">{social.label}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Desktop: Original Layout */}
+          <div className="hidden md:flex w-full flex-col lg:flex-row justify-between items-center gap-8 text-gray-400">
             
             {/* Social Links - Left aligned on desktop */}
             <div className="flex items-center gap-6 md:gap-8 flex-wrap justify-center lg:justify-start">
-              {socialLinks.map((social, index) => (
+              {socialLinks.map((social) => (
                 <a 
                   key={social.label}
                   href={social.href}
@@ -190,12 +218,10 @@ export default function Footer() {
             </div>
 
             {/* Email - Right aligned on desktop */}
-         <a
-  href="mailto:futurixvisuals@gmail.com"
-  className="relative z-[50] flex items-center gap-3 text-base md:text-lg hover:text-purple-400 transition-all duration-300 hover:scale-105 font-medium"
->
-
-
+            <a
+              href="mailto:futurixvisuals@gmail.com"
+              className="flex items-center gap-3 text-base md:text-lg hover:text-purple-400 transition-all duration-300 hover:scale-105 font-medium"
+            >
               <Mail size={20} /> 
               <span>futurixvisuals@gmail.com</span>
             </a>
@@ -203,7 +229,7 @@ export default function Footer() {
         </div>
 
         {/* Copyright & Studio Info */}
-        <div className="w-full border-t border-gray-800/30 py-6 md:py-8 px-6 md:px-8">
+        <div className="w-full border-t border-gray-800/30 py-6 md:py-8 px-4 md:px-8">
           <div className="w-full flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500">
             
             {/* Copyright */}
