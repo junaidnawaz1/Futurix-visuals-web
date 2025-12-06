@@ -1189,7 +1189,7 @@ const Hero = () => {
             text="" 
             words={["E-COM", "PRODUCT", "WEBSITES", "VISUALS"]} 
             interval={2000} 
-            className="sm:font-bold text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] leading-none"
+            className="font-extrabold text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] leading-none"
           />
 
           {/* Line 3: "3D Content & Visuals" */}
@@ -1273,5 +1273,6 @@ const Hero = () => {
     </section>
   );
 };
+
 
 export default Hero;
