@@ -1091,12 +1091,12 @@ const Hero = () => {
     e.preventDefault();
     window.location.href = "/contact";
   };
-
+//mt-0 md:mt-2
   return (
     <section className="w-full mt-0 overflow-hidden font-['PP_Mori']">
       
       {/* VIDEO CONTAINER */}
-      <div className="relative w-full md:w-[calc(100%-2rem)] mx-auto sm:rounded-3xl md:rounded-3xl overflow-hidden h-[90vh] md:h-[90vh] mt-0 md:mt-2">
+      <div className="relative w-full md:w-[calc(100%-2rem)] mx-auto sm:rounded-3xl md:rounded-3xl overflow-hidden h-[90vh] md:h-[90vh] mt-0 md:pt-12">
 
         {/* Desktop Video - Vimeo Player */}
         <div className="hidden md:block absolute inset-0 overflow-hidden">
@@ -1276,3 +1276,4 @@ const Hero = () => {
 
 
 export default Hero;
+
